@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'fr.iwaki.kyumis'
+version '1.0.1-ALPHA'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url 'https://m2.dv8tion.net/releases'
+    }
+
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+dependencies {
+
+    implementation "net.dv8tion:JDA:5.0.0-beta.8"
+    implementation 'mysql:mysql-connector-java:8.0.32'
+
+    implementation fileTree(dir: 'libs', include: '*.jar')
+}
+
+application {
+    getMainClass().set('fr.iwaki.kyumis.Kyumis')
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
